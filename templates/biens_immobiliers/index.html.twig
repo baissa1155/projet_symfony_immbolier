@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BiensImmobiliers
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<div class="grid">
+			{% for bien in biens %}
+				{% include "biens_immobiliers/logement.html.twig" %}
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

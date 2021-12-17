@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+{% block title %}Inscription
+{% endblock %}
+{% block body %}
+	<div class="jumbotron jumbotron-fluid">
+		<marquee>
+			<h1 style="color:#CFB398; font-weight:bold" class="display-4 text-center">Page d'inscription</h1>
+		</marquee>
+		<hr>
+	</div>
+	<div class="row justify-content-center">
+		<div class="col-md-10 ml-md-auto">
+			<div class="card bg-light mb-3 mt-3" style="width: 1000px">
+				<div class="card-body">
+					<div class="card-header mb-3">Inscription</div>
+					<div class="form_group">
+						<div class="col-md-12 mb-3">
+							{{form_row(form.userName, {'label':'Nom d\utilisateur ', 'attr':{'placeholder':'Prenom et nom'}}) }}
+						</div>
+					</div>
+					<div class="form_group">
+						<div class="col-md-12 mb-3">
+							{{form_row(form.email, {'label':'Email ', 'attr':{'placeholder':'Adresse email'}}) }}
+						</div>
+					</div>
+
+					<div class="form_group">
+						<div class="col-md-12 mb-3">
+							{{form_row(form.password, {'label':'Mot de passe ', 'attr':{'placeholder':'Mot de passe !'}})}}
+						</div>
+					</div>
+
+					<div class="form_group">
+						<div class="col-md-12 mb-3">
+							{{form_row(form.confirm_password, {'label':'Confirmation ', 'attr':{'placeholder':'Rétetez votre mot de passe'}})}}
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-md-8 col-md-offset-4" style="margin-top:5px;">
+							<button class="btn btn-block mybtn btn-primary tx-tfm" href="{{ path('inscription')}}">Inscription</button>
+						</div>
+					</div>
+					<p class="text-center">Vous avez déja un compte?
+						<a href="{{ path('connexion') }}">Identifiez-vous ici</a>
+					</p>
+					{{form_end(form)}}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

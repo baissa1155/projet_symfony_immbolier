@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}details
+{% endblock %}
+
+{% block body %}
+	<div class="row">
+		<div class="row col-md-6">
+			<h5 class="card-title">{{ bien.typesLogements }}</h5>
+			<img src="{{ asset('img/biens/'~bien.getPhotoDuBien) }}" class="card-img-top" alt="image du bien"/>
+			<p class="card-text">{{ bien.description | raw }}</p>
+			<p class="card-text">
+				<small class="text-muted">Date soumis :
+					{{ bien.dateSoumis | date('d/m/Y') }}
+					à
+					{{ bien.dateSoumis | date('H/i') }}
+				</small>
+			</p>
+		</div>
+		<div class="row col-md-6">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th scope="col">first</th>
+						<th scope="col">second</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row">Localité</th>
+						<td>{{ bien.localite }}</td>
+					</tr>
+					<tr>
+						<th scope="row">Quartier</th>
+						<td>{{ bien.quartier }}</td>
+					</tr>
+					<tr>
+						<th scope="row">Type de Logement</th>
+						<td>{{ bien.typesLogements }}</td>
+					</tr>
+					<tr>
+						<th scope="row">nombre de chambres</th>
+						<td>{{ bien.chambres }}</td>
+					</tr>
+					<tr>
+						<th scope="row">Nombre de pieces</th>
+						<td>{{ bien.pieces }}</td>
+					</tr>
+					<tr>
+						<th scope="row">Superficie</th>
+						<td>{{ bien.surface }}</td>
+					</tr>
+					<tr>
+						<th scope="row">Nombre d'étages</th>
+						<td>{{ bien.etages }}</td>
+					</tr>
+					<tr>
+						<th scope="row">Douces</th>
+						<td>{{ bien.douces }}</td>
+					</tr>
+					<tr>
+						<th scope="row">Parking</th>
+						<td>{{ bien.parking }}</td>
+					</tr>
+					<tr>
+						<th scope="row">Meublé</th>
+						<td>{{ bien.meuble }}</td>
+					</tr>
+					<tr>
+						<th scope="row">jardin</th>
+						<td>{{ bien.jardin }}</td>
+					</tr>
+				</tbody>
+			</table>
+			<h2 class="card-text">
+				Prix :
+				{{ bien.prix | raw }}
+				CFA
+			</h2>
+			<a href="{{ path('contact') }}" class="btn btn-info">Contactez l'agenge</a>
+		</div>
+	</div>
+	<br>
+	<hr>
+{% endblock %}

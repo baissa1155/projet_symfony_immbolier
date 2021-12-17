@@ -1,0 +1,134 @@
+{% extends 'base.html.twig' %}
+{% block title %}Accueil
+{% endblock %}
+{% block body %}
+
+	<!-- Banner Section -->
+	<section id="banner">
+		<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
+				<li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
+				<li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
+			</ol>
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img src="{{ asset('image/banner.png')}}" class="d-block w-100" alt="...">
+					<div class="carousel-caption d-none d-md-block">
+						<a href="#" class="btn btn-warning">En savoir plus</a>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<img src="{{ asset('image/banner2.png')}}" class="d-block w-100" alt="...">
+					<div class="carousel-caption d-none d-md-block">
+						<a href="#" class="btn btn-warning">En savoir plus</a>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<img src="{{ asset('image/banner3.png')}}" class="d-block w-100" alt="...">
+					<div class="carousel-caption d-none d-md-block">
+						<a href="#" class="btn btn-warning">En savoir plus</a>
+					</div>
+				</div>
+			</div>
+			<a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</a>
+			<a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</a>
+		</div>
+	</section>
+	<!-- End Banner Section -->
+
+	<div class="jumbotron jumbotron-fluid">
+		<h1 style="color:#CFB398; font-weight:bold" class="display-4 text-center">Nos services</h1>
+		<hr>
+	</div>
+
+	<!-- FIRST BLOCK -->
+	<div class="form-group">
+		<div class="row">
+			<div class="col-sm-3">
+				<div class="card">
+					<img class="card-img-top" src="{{ asset('image/about.png')}}" style="max-width: 18rem;" alt="Card image cap">
+					<div class="card-body">
+						<p class="card-text">Assurer une bonne campagne publicitaire de vos biens immobiliers</p>
+						<a href="#" class="btn btn-primary">En savoir plus</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<div class="card">
+					<img class="card-img-top" src="{{ asset('image/compagnie.png')}}" style="max-width: 18rem;" alt="Card image cap">
+					<div class="card-body">
+						<p class="card-text">Une compagnie sénégalaise composés de jeunes.</p>
+						<a href="#" class="btn btn-primary">En savoir plus</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<div class="card">
+					<img class="card-img-top" src="{{ asset('image/services.png')}}" style="max-width: 18rem;" alt="Card image cap">
+					<div class="card-body">
+						<p class="card-text">Location, Vente et gestion d'immobiliers.</p>
+						<a href="{{ path('biens_immobiliers') }}" class="btn btn-primary">En savoir plus</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<div class="card">
+					<img class="card-img-top" src="{{ asset('image/coordonnees.png')}}" style="max-width: 18rem;" alt="Card image cap">
+					<div class="card-body">
+						<p class="card-text">Une équipe disponible pour satisfaire vos besoins</p>
+						<a href="{{ path('contact') }}" class="btn btn-primary">En savoir plus</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr>
+	</div>
+	<!-- SECOND BLOCK -->
+
+
+	<!-- affichage des biens -->
+	<div class="jumbotron jumbotron-fluid">
+		<h1 style="color:#CFB398; font-weight:bold" class="display-4 text-center">A Louer</h1>
+		<hr>
+	</div>
+	<div class="row">
+		{% for bien in biens %}
+			<div
+				class="col-md-4">
+				{# <img src="{{ asset('image/biens/' ~ bien.photo_du_bien)}}" class="card-img-top" alt="image du bien"> #}
+				<img src="{{ asset('img/biens/'~bien.getPhotoDuBien) }}" class="card-img-top" alt="image du bien"/>
+				<h5 class="card-title">{{ bien.typesLogements }}
+					{{ bien.surface }}</h5>
+				<p class="card-text">
+					Région de
+					{{ bien.localite }}
+					dans la localité
+					{{ bien.quartier }}
+				</p>
+				<h2 class="card-text">
+					Prix :
+					{{ bien.prix | raw }}
+					CFA
+				</h2>
+				<a href="{{ path('show_bien', {'id': bien.id} ) }}" class="btn btn-success">En savoir plus</a>
+				<p class="card-text">
+					<small class="text-muted">Date soumis :
+						{{ bien.dateSoumis | date('d/m/Y') }}
+						à
+						{{ bien.dateSoumis | date('H/i') }}
+					</small>
+				</p>
+				<br>
+				<hr>
+			</div>
+		{% endfor %}
+	</div>
+
+{% endblock %}

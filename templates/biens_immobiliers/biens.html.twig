@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BiensImmobiliers
+{% endblock %}
+
+{% block body %}
+	<div class="jumbotron jumbotron-fluid">
+		<marquee>
+			<h1 style="color:#CFB398; font-weight:bold" class="display-4 text-center">Logements à Louer</h1>
+		</marquee>
+		<hr>
+	</div>
+	<div class="row">
+		{% for bien in biens %}
+			<div
+				class="col-md-4">
+				{# <img src="{{ asset('image/biens/' ~ bien.photo_du_bien)}}" class="card-img-top" alt="image du bien"> #}
+				<img src="{{ asset('img/biens/'~bien.getPhotoDuBien) }}" class="card-img-top" alt="image du bien"/>
+				<h5 class="card-title">{{ bien.typesLogements }}
+					{{ bien.surface }}</h5>
+				<p class="card-text">
+					Région de
+					{{ bien.localite }}
+					dans la localité
+					{{ bien.quartier }}
+				</p>
+				<h2 class="card-text">
+					Prix :
+					{{ bien.prix | raw }}
+					CFA
+				</h2>
+				<a href="{{ path('show_bien', {'id': bien.id} ) }}" class="btn btn-success">En savoir plus</a>
+				<p class="card-text">
+					<small class="text-muted">Date soumis :
+						{{ bien.dateSoumis | date('d/m/Y') }}
+						à
+						{{ bien.dateSoumis | date('H/i') }}
+					</small>
+				</p>
+				<br>
+				<hr>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}

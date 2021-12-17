@@ -1,0 +1,129 @@
+{% extends "base.html.twig" %}
+
+
+{% block title %}nouveau bien
+{% endblock %}
+
+{% block body%}
+	<div class="jumbotron jumbotron-fluid">
+		<marquee>
+			<h1 style="color:#CFB398; font-weight:bold" class="display-4 text-center">Ajout d'un bien à vendre</h1>
+		</marquee>
+		<hr><br>
+	</div>
+
+	<div class="formulaire">
+		<div class="row justify-content-center">
+			<div class="col-md-10 ml-md-auto">
+				<div class="card bg-light mb-3 mt-3" style="width: 1000px">
+					<div class="card-body">
+						{{ form_start(formBiens) }}
+						<div class="card-header mb-3">Création du bien à vendre</div>
+
+						<div class="form_group">
+							<div class="col-md-12 mb-3">
+								{{ form_row(formBiens.localite,{'attr' : {'placeholder' : " La région "}})}}
+							</div>
+
+							<div class="col-md-12 mb-3">
+								{{ form_row(formBiens.quartier,{'attr' : {'placeholder' : " Appartement, Immeuble, Maison, Studio... "}})}}
+							</div>
+						</div>
+
+						<div class="form_group">
+							<div class="col-md-12 mb-3">
+								{{ form_row(formBiens.chambres,{'attr' : {'placeholder' : " Nombre de chambres... "}})}}
+							</div>
+						</div>
+
+						<div class="form_group">
+							<div class="col-md-12 mb-3">
+								{{ form_row(formBiens.typesLogements)}}
+							</div>
+						</div>
+
+						<div class="form_group">
+							<div class="col-md-12 mb-3">
+								{{ form_row(formBiens.description,{'attr' : {'placeholder' : " Description du bien "}})}}
+							</div>
+						</div>
+
+						<div class="form_group">
+							<div class="col-md-12 mb-3">
+								{{ form_row(formBiens.rue_et_numero,{'attr' : {'placeholder' : " Rue Cheikh Anta 123 "}})}}
+							</div>
+						</div>
+
+						<div class="form_group">
+							<div class="col-md-12 mb-3">
+								{{ form_row(formBiens.prix,{'attr' : {'placeholder' : " Prix "}})}}
+							</div>
+						</div>
+
+						<div class="form_group">
+							<div class="col-md-12 mb-3">
+								{{ form_row(formBiens.revenue_cadestral,{'attr' : {'placeholder' : " Revenue Cadestral "}})}}
+							</div>
+						</div>
+
+						<div class="form_group">
+							<div class="col-md-12 mb-3">
+								{{ form_row(formBiens.pieces,{'attr' : {'placeholder' : " Nombre de pieces "}})}}
+							</div>
+						</div>
+
+						<div class="form_group">
+							<div class="col-md-12 mb-3">
+								{{ form_row(formBiens.surface,{'attr' : {'placeholder' : "La surface "}})}}
+							</div>
+						</div>
+
+						<div class="form_group">
+							<div class="col-md-12 mb-3">
+								{{ form_row(formBiens.parking)}}
+							</div>
+						</div>
+
+						<div class="form_group">
+							<div class="col-md-12 mb-3">
+								{{ form_row(formBiens.meuble)}}
+							</div>
+						</div>
+						<div class="form_group">
+							<div class="col-md-12 mb-3">
+								{{ form_row(formBiens.jardin)}}
+							</div>
+						</div>
+						<div class="form_group">
+							<div class="col-md-12 mb-3">
+								{{ form_row(formBiens.a_vendre)}}
+							</div>
+						</div>
+						<div class="form_group">
+							<div class="col-md-12 mb-3">
+								{{ form_row(formBiens.a_louer)}}
+							</div>
+						</div>
+
+						<div class="form_group">
+							<div class="col-md-12 mb-3">
+								{{ form_row(formBiens.photo_du_bien,{'attr' : {'placeholder' : "URL de l'image"}})}}
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="gridCheck">
+								<label class="form-check-label" for="gridCheck">
+									J'accepte de soumettre ce bien en vente
+								</label>
+							</div>
+						</div>
+						<button type="submit" class="btn btn-primary">Enregistrer</button>
+						{{ form_end(formBiens) }}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
